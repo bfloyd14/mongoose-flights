@@ -3,7 +3,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-<h1>All Flights</h1>
+<h1>All Flights as of <%= time %></h1>
 <table id="list">
   <thead>
     <tr>
@@ -11,6 +11,8 @@
       <th>Airport</th>
       <th>Flight No.</th>
       <th>Departure Date/Time</th>
+      <th>View Flight Details</th>
+      <th>Delete Flight</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +22,14 @@
       <td><%= flight.airport %></td>
       <td><%= flight.flightNo %></td>
       <td><%= flight.departs %></td>
+      <td><a href="/flights/<%= flight._id %>"></a>DETAILS</td>
+      <td>
+        <form action="/flights/<%= flight._id %>?_method=DELETE" 
+          method="post"
+          >
+          <button type="submit">X</button>
+        </form>
+      </td>
     </tr>
     <% }) %>
   </tbody>
