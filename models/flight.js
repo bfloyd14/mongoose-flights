@@ -9,6 +9,19 @@ const flightSchema = new Schema({
   },
   airport:{
     type: String,
-    enmum: ['AUS', 'DFW', 'DEN', 'LAX']
-  }
+    enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
+    default: 'DEN'
+    },
+  flightNo: {
+    type: Number,
+    min: 10,
+    max: 9999
+  },
+  departs: {
+    default: function(){
+      let newDate = new Date()
+      let adjustedDate = newDate.setFullYear(new Date().getFullYear() + 1)
+      return adjustedDate 
+    }
+  } 
 })
