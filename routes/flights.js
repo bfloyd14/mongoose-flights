@@ -15,6 +15,9 @@ router.get('/:flightId', flightsCtrl.show)
 //GET localhost:3000/flights/flightId/edit
 router.get('/:flightId/edit', flightsCtrl.edit)
 
+//PUT localhost:3000/flights/:flightId
+router.put('/:flightId', flightsCtrl.update)
+
 //POST localhost:3000/flights
 router.post('/', flightsCtrl.create)
 

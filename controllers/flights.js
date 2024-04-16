@@ -17,7 +17,12 @@ function index(req, res){
 
 function newFlight(req, res){
   res.render('flights/new',{
-    title: 'Add Flight'
+    title: 'Add Flight',
+    // default:{
+    //   const newFlight = new Flight()
+    //   const dt = newFlight.departs
+    //   const departDate = dt.toIsoString().slice(0,16)
+    // }
   })
 }
 
@@ -82,6 +87,21 @@ function edit(req, res){
     })
 }
 
+function update(req, res){
+  //remove empty properties on req.body
+  for (let key in req.body){
+    if(req.body[key] === '') delete req.body[key]
+  }
+  Flight.findByIdAndUpdate(req.params.flightId, req.body, {new: true})
+  .then(flight => {
+    res.redirect(`/flights/${flight._id}`)
+  })
+  .catch(err =>{
+    console.log(err)
+    res.redirect('/flights')
+    })
+}
+
 export {
   index,
   newFlight as new,
@@ -89,4 +109,5 @@ export {
   deleteFlight as delete,
   show,
   edit,
+  update,
 }
