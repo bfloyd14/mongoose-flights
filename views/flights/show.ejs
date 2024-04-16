@@ -3,7 +3,19 @@
 <main>
   <h1><%= title %></h1>
   <section>
+    
     <div>Airline:</div>
+      <div>
+        <%= flight.airline %>
+      
+      </div>
+        <div>Airport:</div>
+        <div><%= flight.airport %></div>
+        <div>FlightNo:</div>
+        <div><%= flight.flightNo %>:</div>
+        <div>departs:</div>
+        <div><%= flight.departs %>:</div>
+        <a href="/flight/<%= flight._id %>/edit"><button>Edit Your Flight</button></a>
   </section>
 </main>
 
