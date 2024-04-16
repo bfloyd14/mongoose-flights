@@ -60,6 +60,26 @@ function show(req, res){
       title: 'Flight Details'
     })
   })
+  .catch(err =>{
+    console.log(err)
+    res.redirect('/')
+    })
+}
+
+function edit(req, res){
+//find the flight by flight_id (req.params.flightId)
+  Flight.findById(req.params.flightId)
+  .then(flight =>{
+    //render a view to edit
+    res.render('flights/edit',{
+      flight,
+      title: "Edit your Flight"
+    })
+  })
+  .catch(err =>{
+    console.log(err)
+    res.redirect('/')
+    })
 }
 
 export {
@@ -68,4 +88,5 @@ export {
   create,
   deleteFlight as delete,
   show,
+  edit,
 }

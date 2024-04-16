@@ -5,22 +5,20 @@
   <section>
     
     <div>Airline:</div>
-      <div>
-        <%= flight.airline %>
+    <div>
+      <%= flight.title %>
+    <a href="/flights/<%= flight._id %>/edit">
+        <button>Edit Your Flight</button></a>
       
-      </div>
-        <div>Airport:</div>
-        <div><%= flight.airport %></div>
-        <div>FlightNo:</div>
-        <div><%= flight.flightNo %>:</div>
-        <div>departs:</div>
-        <div><%= flight.departs %>:</div>
-        <a href="/flight/<%= flight._id %>/edit"><button>Edit Your Flight</button></a>
+    </div>
+      <div>Airport:</div>
+      <div><%= flight.airport %></div>
+      <div>FlightNo:</div>
+      <div><%= flight.flightNo %>:</div>
+      <div>departs:</div>
+      <div><%= flight.departs %>:</div>
+        
   </section>
 </main>
-
-
-
-
 
 <%- include('../partials/footer') %>
