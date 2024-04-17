@@ -76,9 +76,11 @@ function edit(req, res){
   Flight.findById(req.params.flightId)
   .then(flight =>{
     //render a view to edit
+    console.log(flight)
     res.render('flights/edit',{
       flight,
-      title: "Edit your Flight"
+      title: "Edit your Flight",
+
     })
   })
   .catch(err =>{
