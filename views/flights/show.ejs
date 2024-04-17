@@ -17,11 +17,10 @@
         <div><%= flight.flightNo %></div>
       <div>departs:</div>
         <div><%= flight.departs %></div>
-      <div>Tickets:</div>
+      <div>Ticket(s):</div>
         <ul>
           <% flight.tickets.forEach(ticketHolder => { %>
-          <li>Seat: <%= ticketHolder.seat %></li>
-          <li>Price: $<%= ticketHolder.price %></li>
+          <li>Seat: <%= ticketHolder.seat %>, Price: $<%= ticketHolder.price %></li>
         <% }) %>
         </ul>
         <form 
