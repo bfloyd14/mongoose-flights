@@ -19,12 +19,24 @@
         <div><%= flight.departs %></div>
       <div>Tickets:</div>
         <ul>
-          <% flight.tickets.forEach(passenger => { %>
-          <li><%= passenger.seat %></li>
-          <li><%= passenger.price %></li>
+          <% flight.tickets.forEach(ticketHolder => { %>
+          <li>Seat: <%= ticketHolder.seat %></li>
+          <li>Price: $<%= ticketHolder.price %></li>
         <% }) %>
         </ul>
+        <form 
+          id="add-ticket-form" 
+          action="/flights/<%= flight._id %>/tickets"
+          method="POST"
+          >
+          <label for="seat-input">Seat:</label>
+          <input type="text" name="seat" id="seat-input">
+          <label for="price-input">Price:</label>
+          <input type="text" name="price" id="price-input">
+          <button type="submit">Add Ticket(s)</button>
+      </form>     
   </section>
+
 </main>
 
 <%- include('../partials/footer') %>

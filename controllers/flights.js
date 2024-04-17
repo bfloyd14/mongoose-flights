@@ -104,6 +104,29 @@ function update(req, res){
     })
 }
 
+function createTicket(req, res){
+  //find the flight by id
+  Flight.findById(req.params.flightId)
+  .then(flight =>{
+    //create review by pushing into tickets array
+    flight.tickets.push(req.body)
+    //save the flight document
+    flight.save()
+    .then(() =>{
+      //redirect to the show view
+      res.redirect(`/flights/${req.params.flightId}`)
+    })
+    .catch(err =>{
+    console.log(err)
+    res.redirect('/flights')
+    }) 
+  })
+  .catch(err =>{
+    console.log(err)
+    res.redirect('/flights')
+    })
+}
+
 export {
   index,
   newFlight as new,
@@ -112,4 +135,5 @@ export {
   show,
   edit,
   update,
+  createTicket,
 }
