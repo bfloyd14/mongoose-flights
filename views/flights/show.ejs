@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="stylesheets/flights/show.css">
+<link rel="stylesheet" href="/stylesheets/flights/show.css">
 <%- include('../partials/nav') %>
 <main>
   <h1><%= title %></h1>
@@ -20,7 +20,8 @@
       <div>Ticket(s):</div>
         <ul>
           <% flight.tickets.forEach(ticketHolder => { %>
-          <li>Seat: <%= ticketHolder.seat %>, Price: $<%= ticketHolder.price %></li>
+          <li>Seat: <%= ticketHolder.seat %> </li>
+          <li>Price: $<%= ticketHolder.price %></li>
         <% }) %>
         </ul>
         <form 
