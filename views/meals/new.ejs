@@ -2,7 +2,14 @@
 <link rel="stylesheet" href="/stylesheets/meals/new.css">
 <%- include('../partials/nav') %>
 
-
+<main>
+  <h1><%= title %></h1>
+  <form action="" method="post">
+    <label for="meal-input">Meal:</label>
+    <input type="text" name="name" id="meal-input">
+    <button type="submit">Add Meal</button>
+  </form>
+</main>
 
 
 
