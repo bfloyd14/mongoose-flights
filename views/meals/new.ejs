@@ -4,11 +4,20 @@
 
 <main>
   <h1><%= title %></h1>
-  <form action="" method="post">
+  <p>ATTENTION, you cannot add a meal that is already added to 'Existing Meals'.</p>
+  <form id="add-meal-form" action="/meals" method="post">
     <label for="meal-input">Meal:</label>
     <input type="text" name="name" id="meal-input">
     <button type="submit">Add Meal</button>
   </form>
+  <h2>Existing Meals:</h2>
+  <ul>
+    <% meals.forEach(taco=>{ %>
+      <li>
+        <%= meal.name %>
+      </li>
+  <% }) %>
+  </ul>
 </main>
 
 
