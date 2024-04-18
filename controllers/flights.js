@@ -1,4 +1,5 @@
 import {Flight} from '../models/flight.js'
+import { Meal } from '../models/meal.js'
 
 
 function index(req, res){
@@ -127,6 +128,7 @@ function createTicket(req, res){
     res.redirect('/flights')
     })
 }
+
 
 export {
   index,

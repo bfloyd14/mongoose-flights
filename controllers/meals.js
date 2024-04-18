@@ -4,8 +4,8 @@ function newMeal(req, res){
   Meal.find({})
   .then(meals=>{
     res.render('meals/new', {
-      meals: meals,
-      title: 'Add Meal'
+      title: 'Add Meal',
+      meals
     })
   })   
 }
@@ -13,12 +13,20 @@ function newMeal(req, res){
 function create(req, res){
   //create a meal by using Meal model
   Meal.create(req.body)
-  .then(meal =>{
+  .then(meals =>{
     res.redirect('/meals/new')
   })
   .catch(err =>{
     console.log(err)
     res.redirect('/meals')
+  })
+}
+
+function createMeal(req, res){
+  Meal.findById(req.params.mealId)
+  .then(flights =>{
+    flight.meals.push(req.body)
+
   })
 }
 
