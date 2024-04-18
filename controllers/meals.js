@@ -22,13 +22,6 @@ function create(req, res){
   })
 }
 
-function createMeal(req, res){
-  Meal.findById(req.params.mealId)
-  .then(flights =>{
-    flight.meals.push(req.body)
-
-  })
-}
 
 export{
   newMeal as new,

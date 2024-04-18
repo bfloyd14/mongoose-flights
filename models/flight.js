@@ -37,7 +37,7 @@ const flightSchema = new Schema({
       return adjustedDate
     } 
   },
-  meals: {type: Schema.Types.ObjectId, ref: 'Meal'},
+  meals: [{type: Schema.Types.ObjectId, ref: 'Meal'}],
   tickets: [ticketSchema]
 })
 
