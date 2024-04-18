@@ -1,5 +1,6 @@
 import {Flight} from '../models/flight.js'
 
+
 function index(req, res){
   Flight.find({})
   .then(flights =>{
