@@ -8,7 +8,6 @@ function index(req, res){
     res.render('flights/index',{
       flights: flights,
       title: 'All Flights',
-      time: req.time
     })
   })
   .catch(err =>{
@@ -66,9 +65,9 @@ function show(req, res){
     .then(meals =>{
       //render the view
       res.render('flights/show',{
-        flight: flight,
+        flight,
         title: 'Flight Details',
-        meals: meals
+        meals,
       })
     })
   })
@@ -121,12 +120,8 @@ function createTicket(req, res){
     flight.save()
     .then(() =>{
       //redirect to the show view
-      res.redirect(`/flights/${req.params.flightId}`)
+      res.redirect(`/flights/${flight._id}`)
     })
-    .catch(err =>{
-    console.log(err)
-    res.redirect('/flights')
-    }) 
   })
   .catch(err =>{
     console.log(err)
@@ -140,7 +135,7 @@ function createMeal(req, res){
     flight.meals.push(req.body.mealId)
     flight.save()
       .then(()=>{
-        res.redirect(`/flights/{flight._id}`)
+        res.redirect(`/flights/${flight._id}`)
       })
   })
   .catch(err =>{
