@@ -33,7 +33,7 @@
       <h3>Add a Meal:</h3>
       <ul>
         <% flight.meals.forEach(meal => { %>
-          <li><%= meal.name %></li>
+          <li> - <%= meal.name %></li>
         <% }) %>
       </ul> 
       <form id="add-meal-to-flight" action="/flights/<%= flight._id %>/meals" method="POST">
